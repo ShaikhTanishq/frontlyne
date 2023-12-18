@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<head>
+    <style>
+        div {
+            display: inline-block;
+            color: #fff;
+            font-size: 40px;
+        }
+
+        .top-container {
+            width: 100%;
+            height: 100px;
+            background: darkblue;
+	    position: absolute;
+	    top: 0%;
+	    left: 0%;
+        }
+
+        .left-container {
+            width: 100px;
+            height: 660px;
+        }
+
+        .participants {
+            width: 93%;
+            height: 100px;
+            color: orange;
+            text-align: left;
+            font-size: 50px;
+            position: absolute;
+            top: 14.9%;
+            margin-top: 30px;
+        }
+
+        .metrics-main {
+            width: 92%;
+            height: 300px;
+            position: absolute;
+            top: 29%;
+            background-color: darkblue;
+            padding-left: 2%;
+            padding-top: 5px;
+        }
+
+
+
+        .logo {
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            padding-top: 4%;
+            padding-left: 10%;
+            position: relative;
+            bottom: 30px;
+            left: -50px;
+        }
+
+        .btn {
+            border: none;
+            background-color: transparent;
+            position: relative;
+            bottom: 30px;
+            left: 50px;
+        }
+
+        .metrics {
+            font-size: 26px;
+            font-family: quickSandBold;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .sortbtn {
+            border-radius: 1%;
+            background-color: rgb(12, 12, 83);
+            color: #fff;
+            float: left;
+            margin-top: 18px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: orange;
+            width: 430px;
+            height: 200px;
+            position: absolute;
+            top: 22%;
+            left: 2%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+            font-size: 30px;
+        }
+
+        .user {
+            font-size: 30px;
+            float: left;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .no {
+            font-size: 30px;
+            float: left;
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+
+        .active2 {
+            background-color: rgb(130, 87, 7);
+            width: 430px;
+            height: 100px;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+
+        }
+
+        .male {
+            font-size: 15px;
+            float: left;
+            margin-left: 5px;
+            margin-top: 10px;
+        }
+
+        .female {
+            font-size: 15px;
+            float: left;
+            margin-left: 100px;
+            margin-top: 10px;
+        }
+
+        .date {
+            background-color: orange;
+            width: 430px;
+            height: 200px;
+            position: absolute;
+            top: 22%;
+            left: 38%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+            font-size: 25px;
+        }
+
+        .datein {
+            font-size: 30px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .date2 {
+            background-color: rgb(130, 87, 7);
+            width: 430px;
+            height: 100px;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+        }
+
+        .newusers {
+            font-size: 15px;
+            float: left;
+            margin-left: 10px;
+        }
+
+        .inactiveusers {
+            font-size: 15px;
+            float: left;
+            margin-left: 215px;
+        }
+
+        .total {
+            background-color: orange;
+            width: 430px;
+            height: 200px;
+            position: absolute;
+            top: 22%;
+            right: 2%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+            font-size: 30px;
+        }
+
+        .total2 {
+            background-color: rgb(130, 87, 7);
+            width: 430px;
+            height: 100px;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            border-top-right-radius: 5%;
+            border-top-left-radius: 5%;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+        }
+
+        .search-container {
+            float: left;
+            margin-left: 815px;
+            display: flex;
+
+        }
+
+
+
+        .dropdown-container {
+            width: 1386px;
+            height: 100px;
+            position: absolute;
+            top: 100%;
+            left: 0%;
+            background-color: white;
+            padding-left: 2%;
+            padding-top: 5px;
+        }
+
+
+        #select1,
+        #select2,
+        #select3,
+        #select4 {
+            width: 100px;
+            height: 30px;
+        }
+
+        select {
+            margin-left:175px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="top-container">
+        <button class="btn"><img src="more.png" width="30px" height="30px">
+        </button>
+        <div class="logo">
+            <img src="logo.jpg" width="200px" height="40px">
+        </div>
+    </div>
+    <div class="left-container"></div>
+    <div class="participants">Participants</div>
+    <div class="metrics-main">
+        <div class="metrics"><b>Metrices by</b>
+        </div>
+        <button class="sortbtn"> Overall</button>
+        <button onclick="toggleSearchBars()" class="sortbtn">Specific</button>
+        <div class="search-container">
+            <input type="text" id="searchBar1" style="display: none;" placeholder="Search by name">
+            <input type="text" id="searchBar2" style="display: none;" placeholder="Search by company">
+        </div>
+        <div class="active">
+            <div class="user">
+                <b>Active</b><br>Users
+            </div>
+            <div class="no">
+                130
+            </div>
+            <div class="active2">
+                <div class="male">
+                    <img src="male.png" width="30px" height="30px">Male users<br>60
+                </div>
+                <div class="female">
+                    <img src="female.png" width="30px" height="30px">Female users<br>70
+                </div>
+            </div>
+        </div>
+
+        <div class="date">
+            <div class="datein">
+                Select a Date Range <br>
+                <input type="date" placeholder="start date - end date">
+            </div>
+            <div class="date2">
+                <div class="newusers">
+                    Users
+                    New<br>0
+                </div>
+                <div class="inactiveusers">
+                    Users
+                    Inactive<br>0
+                </div>
+            </div>
+
+        </div>
+        <div class="total">
+            <div class="user">
+                <b>Total</b><br>
+                Users
+            </div>
+            <div class="no">
+                137
+            </div>
+            <div class="total2">
+                <div class="male">
+                    <img src="male.png" width="30px" height="30px">Male users<br>62
+                </div>
+                <div class="female">
+                    <img src="female.png" width="30px" height="30px">Female users<br>75
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown-container">
+            <select id="select1">
+            </select>
+            <select id="select2" disabled>
+            </select>
+            <select id="select3" disabled>
+            </select>
+            <select id="select4" disabled>
+            </select>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var dropdownValues = ["Select", "option1", "option2", "option3", "option4"];
+
+                var previousOption = null;
+
+                $('#select1').append(dropdownValues.map(value => `<option value="${value}">${value}</option>`));
+                $('#select2').append(dropdownValues.map(value => `<option value="${value}">${value}</option>`)).prop('disabled', true);
+                $('#select3').append(dropdownValues.map(value => `<option value="${value}">${value}</option>`)).prop('disabled', true);
+                $('#select4').append(dropdownValues.map(value => `<option value="${value}">${value}</option>`)).prop('disabled', true);
+
+                $('#select1').on('change', function () {
+                    const selectedOption = $(this).find('option:selected').val();
+                    $(`[value="${previousOption}"]:disabled`).attr('disabled', false);
+                    previousOption = null;
+                    $(`[value="${selectedOption}"]:not(:selected)`).attr('disabled', true);
+
+                    // Enable the next dropdown
+                    $('#select2').prop('disabled', false);
+                });
+
+                $('#select2').on('change', function () {
+                    const selectedOption = $(this).find('option:selected').val();
+                    $(`[value="${previousOption}"]:disabled`).attr('disabled', false);
+                    previousOption = null;
+                    $(`[value="${selectedOption}"]:not(:selected)`).attr('disabled', true);
+
+                    // Enable the next dropdown
+                    $('#select3').prop('disabled', false);
+                });
+
+                $('#select3').on('change', function () {
+                    const selectedOption = $(this).find('option:selected').val();
+                    $(`[value="${previousOption}"]:disabled`).attr('disabled', false);
+                    previousOption = null;
+                    $(`[value="${selectedOption}"]:not(:selected)`).attr('disabled', true);
+
+                    // Enable the next dropdown
+                    $('#select4').prop('disabled', false);
+                });
+
+                $('select').on('click', function () {
+                    previousOption = $(this).find('option:selected').val();
+                });
+            });
+
+
+            function toggleSearchBars() {
+
+                const searchBar1 = document.getElementById('searchBar1');
+                const searchBar2 = document.getElementById('searchBar2');
+
+                searchBar1.style.display = (searchBar1.style.display === 'none' || searchBar1.style.display === '') ? 'block' : 'none';
+                searchBar2.style.display = (searchBar2.style.display === 'none' || searchBar2.style.display === '') ? 'block' : 'none';
+            }
+        </script>
+</body>
+
+</html>
